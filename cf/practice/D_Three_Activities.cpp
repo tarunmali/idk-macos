@@ -38,10 +38,45 @@ int mpow(int base, int exp, long long cmod=mod){base %= cmod;long long result = 
 ll mminvprime(ll a, ll b) {return mpow(a, b - 2, b);}
 ll modd(ll a, ll b, ll cm=mod) {a = a % cm; b = b % cm; return (modm(a, mminvprime(b, cm), cm) + cm) % cm;}
 
+vvl f(vl &v){
+    ll n=v.size();
+    ll m1=-1,m2=-1,m3=-1;
+    for(ll i=0;i<n;i++){
+        if(m1==-1 or v[i]>v[m1]){
+            m3=m2;
+            m2=m1;
+            m1=i;
+        }
+        else if(m2==-1 or v[i]>v[m2]){
+            m3=m2;            m2=i;
+        }
+        else if(m3==-1 or v[i]>v[m3]){
+            m3=i;
+        }
+    }
+    return {{v[m1],m1},{v[m2],m2},{v[m3],m3}};
+}
+
 void solve(){
-    iinp(x);
-    vinp(v,x);
-    priv(v);
+    iinp(n);
+    vinp(a,n);
+    vinp(b,n);
+    vinp(c,n);
+    vvl aa,bb,cc;
+    aa=f(a);
+    bb=f(b);
+    cc=f(c);
+    ll ans=LLONG_MIN;
+    for(auto va: aa){
+        for(auto vb: bb){
+           for(auto vc: cc){
+               if(va[1]==vb[1] or va[1]==vc[1] or vb[1]==vc[1]) continue;
+               ans=max(ans,va[0]+vb[0]+vc[0]);
+           }
+            
+        }
+    }
+    pri(ans);
 }
 
 
@@ -57,7 +92,7 @@ int32_t main(){
 
     int ttt;
     ttt=1;
-    // cin>>ttt;
+    cin>>ttt;
     int ccc=ttt;
     while(ttt--){
         // cout<<"Case "<<(ccc-ttt)<<":"<<" ";
