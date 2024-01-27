@@ -39,7 +39,10 @@ ll mminvprime(ll a, ll b) {return mpow(a, b - 2, b);}
 ll modd(ll a, ll b, ll cm=mod) {a = a % cm; b = b % cm; return (modm(a, mminvprime(b, cm), cm) + cm) % cm;}
 
 void solve(){
-
+    iinp(n);
+    vinp(v,n);
+    ll minn=*min_element(it(v));
+    pri(minn==v[0]?"YES":"NO");
 }
 
 

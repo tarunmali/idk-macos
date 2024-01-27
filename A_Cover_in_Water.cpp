@@ -39,7 +39,21 @@ ll mminvprime(ll a, ll b) {return mpow(a, b - 2, b);}
 ll modd(ll a, ll b, ll cm=mod) {a = a % cm; b = b % cm; return (modm(a, mminvprime(b, cm), cm) + cm) % cm;}
 
 void solve(){
-
+    iinp(n);
+    sinp(s);
+    vl v;
+    for(char c: s){
+      v.push_back(c=='.'?1:0);  
+    }
+    for(ll i=1;i<=n-2;i++){
+        if(v[i]==1 and v[i-1]==1 and v[i+1]==1){
+            pri(2);
+            return;
+        }
+    }
+    pri(accumulate(it(v),0ll));
+    
+    
 }
 
 

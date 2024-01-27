@@ -39,7 +39,33 @@ ll mminvprime(ll a, ll b) {return mpow(a, b - 2, b);}
 ll modd(ll a, ll b, ll cm=mod) {a = a % cm; b = b % cm; return (modm(a, mminvprime(b, cm), cm) + cm) % cm;}
 
 void solve(){
+    iinp(n);
+    vinp(v,n);
+    map<long long, long long> m;
+    for(ll x:v){
+      m[x]++;  
+    }
+    // _pri(m);
+    if(m.size()!=1 and m.size()!=2){
+      pri("No");
+      return;
+    }
+    if(m.size()==1){
+      pri("Yes");
+      return;
+    }
+    auto it=m.begin();
+    ll one=it->second;
+    it++;
+    ll two=it->second;
+    if(abs(one-two)<=1){
+      pri("Yes");
+      return;
+    }
+    pri("No");
 
+    
+    
 }
 
 

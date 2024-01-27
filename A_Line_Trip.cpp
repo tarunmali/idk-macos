@@ -39,7 +39,14 @@ ll mminvprime(ll a, ll b) {return mpow(a, b - 2, b);}
 ll modd(ll a, ll b, ll cm=mod) {a = a % cm; b = b % cm; return (modm(a, mminvprime(b, cm), cm) + cm) % cm;}
 
 void solve(){
-
+    ll n,x;
+    inp(n,x);
+    vinp(v,n);
+    ll ans=max(v[0],2*(x-v[n-1]));
+    for(ll i=1;i<n;i++){
+        ans=max(ans,v[i]-v[i-1]);
+    }
+    pri(ans);
 }
 
 

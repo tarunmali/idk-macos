@@ -39,7 +39,15 @@ ll mminvprime(ll a, ll b) {return mpow(a, b - 2, b);}
 ll modd(ll a, ll b, ll cm=mod) {a = a % cm; b = b % cm; return (modm(a, mminvprime(b, cm), cm) + cm) % cm;}
 
 void solve(){
+    iinp(n);
+    vinp(v,n);
+    //a0%k==a1%k or a2%k
+    //q1*k+r
+    //q2*k+r
+    //a0-q1k==a1-q2k or a2-q3k
+        
 
+    
 }
 
 
