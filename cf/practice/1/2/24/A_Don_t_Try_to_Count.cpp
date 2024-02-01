@@ -43,7 +43,7 @@ void solve(){
     inp(n,m);
     sinp(x);
     sinp(s);
-    
+        
     
 }
 
