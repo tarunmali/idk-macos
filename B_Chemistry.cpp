@@ -39,8 +39,27 @@ ll mminvprime(ll a, ll b) {return mpow(a, b - 2, b);}
 ll modd(ll a, ll b, ll cm=mod) {a = a % cm; b = b % cm; return (modm(a, mminvprime(b, cm), cm) + cm) % cm;}
 
 void solve(){
-
+    ll n,k;
+    inp(n,k);
+    sinp(s);
+    map<char, long long> m;
+    for(char c: s){
+        m[c]++;
+    }
+    ll odd=0;
+    for(auto p:m){
+      if(p.second%2){
+        odd++;
+      }  
+    }
+    if(odd>k+1){
+        pri("NO");
+        return;
+    }
+    pri("YES");
+    
 }
+
 
 
 

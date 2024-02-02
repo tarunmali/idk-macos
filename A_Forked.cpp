@@ -39,13 +39,34 @@ ll mminvprime(ll a, ll b) {return mpow(a, b - 2, b);}
 ll modd(ll a, ll b, ll cm=mod) {a = a % cm; b = b % cm; return (modm(a, mminvprime(b, cm), cm) + cm) % cm;}
 
 void solve(){
+    ll a,b;
+    inp(a,b);
+    ll kx,ky,qx,qy;
+    inp(kx,ky,qx,qy);
+    vector<vector<ll>> knight;
+    if(a!=b) knight={{a,b},{a,-b},{-a,b},{-a,-b},{b,a},{b,-a},{-b,a},{-b,-a}};
+    else knight={{a,b},{a,-b},{-a,b},{-a,-b}};
+    ll ans=0;
+    set<vector<ll>> se;//see set
+    for(auto v: knight){
+        se.insert({kx+v[0],ky+v[1]});
+    }
+
+    // _pri(se);
+
+    for(auto v: knight){
+        if(se.count({qx+v[0],qy+v[1]})) ans++;
+    }
+    pri(ans);
+
 
 }
 
 
 
+
 int32_t main(){
-    ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+    // ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
     #ifndef ONLINE_JUDGE
     freopen("/Users/idk/Developer/input.txt", "r", stdin);
     freopen("/Users/idk/Developer/output.txt", "w", stdout);

@@ -39,7 +39,18 @@ ll mminvprime(ll a, ll b) {return mpow(a, b - 2, b);}
 ll modd(ll a, ll b, ll cm=mod) {a = a % cm; b = b % cm; return (modm(a, mminvprime(b, cm), cm) + cm) % cm;}
 
 void solve(){
-
+    ll n,k;
+    inp(n,k);
+    vinp(v,n);
+    ll ans1=0,ans2=0;
+    sort(it(v));
+    for(ll i=1;i<n;i++){
+        if(v[i]-v[i-1]>k) ans1=i;
+        if(v[n-i]-v[n-i-1]>k) ans2=i;
+    }
+    pri(ans1,ans2);    
+    pri(min(ans1,ans2));
+    
 }
 
 

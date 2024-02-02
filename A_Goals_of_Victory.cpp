@@ -13,23 +13,23 @@ using namespace std;
 template<typename... T> void pri(T&&... args){((cout << args <<" "), ...);cout<<'\n';}
 template<typename... T> void inp(T&... args){((cin >> args and cin.ignore()), ...);}
 void priv(vector<ll> &v){for(int i=0;i<v.size();i++){cout<<v[i]<<" ";}cout<<'\n';}
-void _pri(ll t) {cerr << t<<" ";}
-void _pri(string t) {cerr << t;}
-void _pri(char t) {cerr << t;}
-void _pri(lld t) {cerr << t;}
-void _pri(double t) {cerr << t;}
-void _pri(ull t) {cerr << t;}  
+void _pri(ll t) {cout << t<<" ";}
+void _pri(string t) {cout << t;}
+void _pri(char t) {cout << t;}
+void _pri(lld t) {cout << t;}
+void _pri(double t) {cout << t;}
+void _pri(ull t) {cout << t;}  
  
 template <class T, class V> void _pri(pair <T, V> p);
 template <class T> void _pri(vector <T> v);
 template <class T> void _pri(set <T> v);
 template <class T, class V> void _pri(map <T, V> v);
 template <class T> void _pri(multiset <T> v);
-template <class T, class V> void _pri(pair <T, V> p) {_pri(p.first); cerr << " "; _pri(p.second); cerr << '\n';}
-template <class T> void _pri(vector <T> v) {for (T i : v){_pri(i);}cerr <<'\n';}    
-template <class T> void _pri(set <T> v) {for (T i : v) {_pri(i); } cerr << '\n';}
-template <class T> void _pri(multiset <T> v) {for (T i : v) {_pri(i);} cerr << '\n';}
-template <class T, class V> void _pri(map <T, V> v) {for (auto i : v) {_pri(i);} cerr <<'\n';}
+template <class T, class V> void _pri(pair <T, V> p) {_pri(p.first); cout << " "; _pri(p.second); cout << '\n';}
+template <class T> void _pri(vector <T> v) {for (T i : v){_pri(i);}cout <<'\n';}    
+template <class T> void _pri(set <T> v) {for (T i : v) {_pri(i); } cout << '\n';}
+template <class T> void _pri(multiset <T> v) {for (T i : v) {_pri(i);} cout << '\n';}
+template <class T, class V> void _pri(map <T, V> v) {for (auto i : v) {_pri(i);} cout <<'\n';}
 #define mod 1000000007  
 ll moda(ll a, ll b, ll cm=mod) {a = a % cm; b = b % cm; return (((a + b) % cm) + cm) % cm;}
 ll modm(ll a, ll b, ll cm=mod) {a = a % cm; b = b % cm; return (((a * b) % cm) + cm) % cm;}
@@ -39,13 +39,16 @@ ll mminvprime(ll a, ll b) {return mpow(a, b - 2, b);}
 ll modd(ll a, ll b, ll cm=mod) {a = a % cm; b = b % cm; return (modm(a, mminvprime(b, cm), cm) + cm) % cm;}
 
 void solve(){
-
+    iinp(n);
+    vinp(v,n-1);
+    pri(-accumulate(it(v),0ll));
 }
 
 
 
+
 int32_t main(){
-    ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+    // ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
     #ifndef ONLINE_JUDGE
     freopen("/Users/idk/Developer/input.txt", "r", stdin);
     freopen("/Users/idk/Developer/output.txt", "w", stdout);

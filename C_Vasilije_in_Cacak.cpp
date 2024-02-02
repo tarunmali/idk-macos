@@ -38,8 +38,21 @@ int mpow(int base, int exp, long long cmod=mod){base %= cmod;long long result = 
 ll mminvprime(ll a, ll b) {return mpow(a, b - 2, b);}
 ll modd(ll a, ll b, ll cm=mod) {a = a % cm; b = b % cm; return (modm(a, mminvprime(b, cm), cm) + cm) % cm;}
 
-void solve(){
 
+
+
+void solve(){
+    ll n,no,k;
+    inp(n,no,k);
+    ll minn=(no*(no+1))/2;
+    ll rem=n-no;
+    ll maxx=(n*(n+1))/2-(rem*(rem+1))/2;;
+    if(k<minn or k>maxx){
+        pri("NO");
+        return;
+    }
+    pri("YES");
+    
 }
 
 

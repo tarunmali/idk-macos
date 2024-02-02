@@ -39,7 +39,20 @@ ll mminvprime(ll a, ll b) {return mpow(a, b - 2, b);}
 ll modd(ll a, ll b, ll cm=mod) {a = a % cm; b = b % cm; return (modm(a, mminvprime(b, cm), cm) + cm) % cm;}
 
 void solve(){
-
+    iinp(n);
+    vinp(v,n);
+    if(n%2==0){
+      pri(2);
+      pri(1,n);
+      pri(1,n);
+    }
+    else{
+      pri(4);
+      pri(1,n-1);
+      pri(1,n-1);
+      pri(n-1,n);
+      pri(n-1,n);
+    }
 }
 
 
