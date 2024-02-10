@@ -39,6 +39,42 @@ ll mminvprime(ll a, ll b) {return mpow(a, b - 2, b);}
 ll modd(ll a, ll b, ll cm=mod) {a = a % cm; b = b % cm; return (modm(a, mminvprime(b, cm), cm) + cm) % cm;}
 
 void solve(){
+    ll n1,n2,k;
+    inp(n1,n2,k);
+    vinp(v1,n1);
+    vinp(v2,n2);
+    map<long long, long long> m,m1,m2;
+    for(ll x: v1){
+        m[x]++;
+        m1[x]++;
+    }
+    for(ll x: v2){
+        m[x]++;
+        m2[x]++;
+    }
+    ll cnt1=0,cnt2=0,common=0; 
+    for(ll i=1;i<=k;i++){
+       if(m.count(i)==0){
+         pri("NO");
+         return;
+       } 
+       else if(!m1.count(i) and m2.count(i)) cnt2++;
+       else if(m1.count(i) and !m2.count(i)) cnt1++;
+       else {
+            common++;
+       }
+    } 
+    if(cnt1>k/2 or cnt2>k/2){
+        pri("NO");
+        return;        
+    }
+    if(k-cnt1-cnt2<=common){
+        pri("YES");
+        return;
+    }
+    pri("NO");
+    
+    
     
 }
 

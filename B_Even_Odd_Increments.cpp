@@ -39,6 +39,31 @@ ll mminvprime(ll a, ll b) {return mpow(a, b - 2, b);}
 ll modd(ll a, ll b, ll cm=mod) {a = a % cm; b = b % cm; return (modm(a, mminvprime(b, cm), cm) + cm) % cm;}
 
 void solve(){
+    ll n,q;
+    inp(n,q);
+    vinp(v,n);
+
+    // pri(n,q);
+    // priv(v);
+
+    ll sum=accumulate(it(v),0ll);
+    ll even=0,odd;
+    for(ll x: v){
+      if(x%2==0) even++;  
+    }
+    odd=n-even;
+    // pri(sum,odd,even);
+    while(q--){
+        ll t,x;
+        inp(t,x);
+        if(t==0){
+          sum+=even*x;
+        }
+        else{
+            sum+=odd*x;
+        }
+        pri(sum);             
+    }
     
 }
 

@@ -38,8 +38,30 @@ int mpow(int base, int exp, long long cmod=mod){base %= cmod;long long result = 
 ll mminvprime(ll a, ll b) {return mpow(a, b - 2, b);}
 ll modd(ll a, ll b, ll cm=mod) {a = a % cm; b = b % cm; return (modm(a, mminvprime(b, cm), cm) + cm) % cm;}
 
+bool f(ll x, map<char, long long> &m, string &ans){
+    for(auto &p:m){
+        if(p.second==x){
+            p.second++;
+            ans+=p.first;
+            return 1;
+        }
+    }
+}
+
+
 void solve(){
-    
+    iinp(n);
+    vinp(v,n);
+    string ans;
+    map<char, long long> m;
+    for(ll i=0;i<26;i++){
+       m.insert({'a'+i,0}); 
+    }
+    for(ll x: v){
+        f(x,m,ans);
+    }    
+    pri(ans);
+       
 }
 
 

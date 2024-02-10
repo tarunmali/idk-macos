@@ -38,7 +38,32 @@ int mpow(int base, int exp, long long cmod=mod){base %= cmod;long long result = 
 ll mminvprime(ll a, ll b) {return mpow(a, b - 2, b);}
 ll modd(ll a, ll b, ll cm=mod) {a = a % cm; b = b % cm; return (modm(a, mminvprime(b, cm), cm) + cm) % cm;}
 
+bool check(string &s){;
+    for(char c:s){
+        if(c=='B') return 0;
+    }
+    return 1;
+}
+
+string convert(string s,ll ii,ll jj){
+    for(ll i=ii;i<=jj;i++){
+        s[i]='W';
+    }
+    return s;
+}
+
 void solve(){
+    iinp(n);
+    sinp(s);
+    ll ans=n;
+    for(ll i=0;i<n;i++){
+        for(ll j=i;j<n;j++){
+            string con=convert(s,i,j);
+            if(check(con)) ans=min(ans,j-i+1);
+        }
+    }
+    pri(ans);
+    
     
 }
 

@@ -39,7 +39,24 @@ ll mminvprime(ll a, ll b) {return mpow(a, b - 2, b);}
 ll modd(ll a, ll b, ll cm=mod) {a = a % cm; b = b % cm; return (modm(a, mminvprime(b, cm), cm) + cm) % cm;}
 
 void solve(){
-    
+    ll n,k;
+    inp(n,k);
+    set<ll> se;
+    for(ll i=1;i<=n;i++){
+        se.insert(i);
+    }
+    vl ans(n);
+    ll i;
+    for(i=0;i+k<n;i++){
+        ans[i]=*se.begin();
+        se.erase(se.begin());
+        ans[i+k]=ans[i]+1;
+        se.erase(ans[i+k]);
+    }
+    for(ll j=i;j<;j++){
+        
+    }
+
 }
 
 

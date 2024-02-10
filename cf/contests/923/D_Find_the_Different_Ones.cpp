@@ -38,8 +38,60 @@ int mpow(int base, int exp, long long cmod=mod){base %= cmod;long long result = 
 ll mminvprime(ll a, ll b) {return mpow(a, b - 2, b);}
 ll modd(ll a, ll b, ll cm=mod) {a = a % cm; b = b % cm; return (modm(a, mminvprime(b, cm), cm) + cm) % cm;}
 
+
+vl nextdiff(vl &v){
+    ll n=v.size();
+    stack<ll> st;
+    st.push(0);
+    vector<ll> nge(n,n);
+    for(ll i=1;i<n;i++){
+    while(!st.empty() and v[i]!=v[st.top()]){
+    //the current element which came is greater then the top element, as long as it is greater then the top element of stack, it will be nge of that element
+        nge[st.top()]=i;
+        st.pop();
+    }
+    st.push(i);
+    }
+    return nge;
+}
+
+vl prevdiff(vl &v){
+    ll n=v.size();
+    stack<ll> st;
+    st.push(n-1);
+    vector<ll> nge(n,-1);
+    for(ll i=n-2;i>=0;i--){
+    while(!st.empty() and v[i]!=v[st.top()]){
+    //the current element which came is greater then the top element, as long as it is greater then the top element of stack, it will be nge of that element
+        nge[st.top()]=i;
+        st.pop();
+    }
+    st.push(i);
+    }
+    return nge;
+}
+
 void solve(){
-    
+    iinp(n);
+    vinp(v,n);   
+    vl next=nextdiff(v);
+    vl prev=prevdiff(v);
+    iinp(q);
+    while(q--){
+       ll l,r;
+       inp(l,r);
+       l--,r--;         
+        if(next[l]>r and prev[l]<l){
+            pri(-1,-1);
+        }
+        else if(next[l]<=r){
+            pri(l+1,next[l]+1);
+        }
+        else{
+            pri(prev[r]+1,r+1);            
+        }    
+    }
+    pri(); 
 }
 
 
